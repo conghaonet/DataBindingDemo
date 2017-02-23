@@ -9,12 +9,12 @@
         android:layout_height="match_parent">
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:text="@{user.name, default=YourName}"/>
+                  android:text='@{"姓名：" + user.name, default=YourName}'/>
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:text='@{user.age + @string/age}'/>
+                  android:text='@{"年龄：" + user.age + @string/age}'/>
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:text='@{user.isMarried ? "已婚":"未婚"}'/>
+                  android:text='@{user.isMarried ? "婚否：已婚" : "婚否：未婚"}'/>
     </LinearLayout>
 </layout>
