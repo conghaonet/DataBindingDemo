@@ -1,5 +1,6 @@
 # DataBindingDemo
-### 配置
+### 基础配置
+---
 然后修改对应模块（Module）的 build.gradle：
 ```groovy
 android {
