@@ -19,5 +19,4 @@ public class ModuleAActivity extends AppCompatActivity {
         user.setMarried(true);
         binding.setUser(user);
     }
-
 }
