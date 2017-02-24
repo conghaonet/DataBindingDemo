@@ -16,7 +16,7 @@ public class ModuleAActivity extends AppCompatActivity {
         User user =new User();
         user.setName("张三");
         user.setAge(28);
-//        user.setMarried(true);
+        user.setMarried(true);
         binding.setUser(user);
     }
 
