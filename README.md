@@ -26,6 +26,7 @@ strings.xml：
     <string name="age">岁</string>
 </resources>
 ```
+
 activity_module_a.xml：
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -49,6 +50,7 @@ activity_module_a.xml：
     </LinearLayout>
 </layout>
 ```
+
 ModuleAActivity.java：
 ```java
 public class ModuleAActivity extends AppCompatActivity {
