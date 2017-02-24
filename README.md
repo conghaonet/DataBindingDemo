@@ -10,6 +10,13 @@ android {
     ......
 }
 ```
+启用dataBinding后，工程会自动添加如下依赖包：
+* com.android.databinding:library:{Version}
+* com.android.databinding:adapters:{Version}
+* com.android.databinding:compiler:{Version}
+* com.android.databinding:compilerCommon:{Version}
+* com.android.databinding:baseLibrary:{Version}
+
 strings.xml：
 ```xml
 <resources>
