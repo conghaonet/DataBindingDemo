@@ -1,12 +1,15 @@
 package com.app2m.modulea;
 
+import android.content.Context;
 import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
 import android.databinding.InverseBindingAdapter;
 import android.databinding.ViewDataBinding;
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -32,18 +35,28 @@ public class ModuleAActivity extends AppCompatActivity {
 
         UserHandler handler = new UserHandler();
         binding.setHandler(handler);
+
+
     }
 
+/*
+    @BindingAdapter("android:src")
+    public static void setSrc(ImageView view, Bitmap bitmap) {
+        view.setImageBitmap(bitmap);
+    }
+
+    @BindingAdapter("android:src")
+    public static void setSrc(ImageView view, int resId) {
+        view.setImageResource(R.drawable.ic_launcher);
+        view.setImageResource(resId);
+    }
+*/
 /*
     @BindingAdapter({"bind:avatar"})
     public static void loadImage(ImageView view, String avatar) {
         Toast.makeText(view.getContext(), "aaaa", Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void onClickBtn(View view) {
-
-    }
 
     public class Presenter {
         public void onClick(View view) {

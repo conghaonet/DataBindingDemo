@@ -2,7 +2,6 @@ package com.app2m.modulea.vm;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
-import android.databinding.Observable;
 
 /**
  * Created by CongHao on 2017/2/24.
@@ -31,7 +30,6 @@ public class UserVM extends BaseObservable {
 
     public void setAge(int age) {
         this.age = age;
-        notifyPropertyChanged(com.app2m.modulea.BR.age);
     }
 
     @Bindable

@@ -14,5 +14,6 @@ public class UserHandler {
     public void addAge(View view, UserVM viewModel) {
         Toast.makeText(view.getContext(), "点击了", Toast.LENGTH_SHORT).show();
         viewModel.setAge(viewModel.getAge() + 10);
+        viewModel.notifyChange();
     }
 }
