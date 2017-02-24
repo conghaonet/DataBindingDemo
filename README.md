@@ -10,14 +10,14 @@ android {
     ......
 }
 ```
-###### strings.xml
+strings.xml：
 ```xml
 <resources>
     <string name="app_name">ModuleA</string>
     <string name="age">岁</string>
 </resources>
 ```
-###### activity_module_a.xml
+activity_module_a.xml：
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
@@ -40,7 +40,7 @@ android {
     </LinearLayout>
 </layout>
 ```
-###### ModuleAActivity.java
+ModuleAActivity.java：
 ```java
 public class ModuleAActivity extends AppCompatActivity {
 
