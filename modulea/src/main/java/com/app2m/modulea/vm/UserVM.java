@@ -1,18 +1,21 @@
-package com.app2m.modulea.bean;
+package com.app2m.modulea.vm;
 
-import java.io.Serializable;
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+import android.databinding.Observable;
 
 /**
  * Created by CongHao on 2017/2/24.
  * E-mail: hao.cong@app2m.com
  */
 
-public class User implements Serializable {
+public class UserVM extends BaseObservable {
     private String name;
     private int age;
     private boolean isMarried;
     private String avatar;
 
+    @Bindable
     public String getName() {
         return name;
     }
@@ -21,14 +24,17 @@ public class User implements Serializable {
         this.name = name;
     }
 
+    @Bindable
     public int getAge() {
         return age;
     }
 
     public void setAge(int age) {
         this.age = age;
+        notifyPropertyChanged(com.app2m.modulea.BR.age);
     }
 
+    @Bindable
     public boolean isMarried() {
         return isMarried;
     }
@@ -37,6 +43,7 @@ public class User implements Serializable {
         isMarried = married;
     }
 
+    @Bindable
     public String getAvatar() {
         return avatar;
     }
@@ -45,8 +52,10 @@ public class User implements Serializable {
         this.avatar = avatar;
     }
 
-    @Override
-    public String toString() {
-        return "[" + name + ", " + age + ", " + isMarried + "]";
+/*
+    @BindingAdapter({"bind:avatar"})
+    public void loadImage(ImageView view, String avatar) {
+        Toast.makeText(view.getContext(), "aaaa", Toast.LENGTH_SHORT).show();
     }
+*/
 }

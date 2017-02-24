@@ -1,12 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <variable name="user" type="com.app2m.modulea.bean.User"/>
+        <variable name="handler" type="com.app2m.modulea.handler.UserHandler"/>
+        <variable name="user"      type="com.app2m.modulea.vm.UserVM"/>
     </data>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="set name"
+            android:onClick="@{(v) -> handler.addAge(v, user)}"
+            />
+        <!--android:onClick="@{presenter.onClickBtn}"-->
+
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:text='@{"姓名：" + user.name, default=YourName}'/>
@@ -16,5 +25,11 @@
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:text='@{user.isMarried ? "婚否：已婚" : "婚否：未婚"}'/>
+<!--
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:avatar = '@{user.avatar}' />
+-->
     </LinearLayout>
 </layout>
