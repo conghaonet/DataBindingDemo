@@ -3,6 +3,7 @@ package com.app2m.modulea.handler;
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.app2m.modulea.vm.UserVM;
@@ -18,6 +19,11 @@ public class UserHandler {
         Toast.makeText(view.getContext(), "点击了", Toast.LENGTH_SHORT).show();
         viewModel.setAge(viewModel.getAge() + 10);
         viewModel.setAvatar("http://img.knowledge.csdn.net/upload/base/1452500783406_406.jpg");
+        viewModel.notifyChange();
+    }
+
+    public void onItemSelected(AdapterView<?> parent, View view, int position, UserVM viewModel) {
+        Toast.makeText(view.getContext(), parent.getAdapter().getItem(position).toString(), Toast.LENGTH_LONG).show();
         viewModel.notifyChange();
     }
 

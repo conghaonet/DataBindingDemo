@@ -62,7 +62,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dropdown"
-                android:entries="@{user.cities}" />
+                android:entries="@{user.cities}"
+                android:onItemSelected="@{(p,v,pos,id) -> handler.onItemSelected(p, v, pos, user)}"
+                />
 
         </LinearLayout>
         <Switch

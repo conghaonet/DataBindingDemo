@@ -1,5 +1,6 @@
 package com.app2m.modulea;
 
+import android.databinding.BindingMethod;
 import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -7,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 import android.databinding.ViewDataBinding;
 import com.app2m.modulea.databinding.ActivityModuleABinding;
@@ -46,6 +48,7 @@ public class ModuleAActivity extends AppCompatActivity {
         UserHandler handler = new UserHandler();
         binding.setHandler(handler);
     }
+
     public void close(View view) {
         Toast.makeText(view.getContext(), "关闭了", Toast.LENGTH_SHORT).show();
         finish();
