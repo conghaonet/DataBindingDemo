@@ -1,25 +1,18 @@
 package com.app2m.modulea;
 
-import android.content.Context;
-import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
-import android.databinding.InverseBindingAdapter;
-import android.databinding.ViewDataBinding;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.Toast;
-
-import com.app2m.modulea.bean.User;
+import android.databinding.ViewDataBinding;
 import com.app2m.modulea.databinding.ActivityModuleABinding;
 import com.app2m.modulea.handler.UserHandler;
 import com.app2m.modulea.vm.UserVM;
-import com.bumptech.glide.Glide;
+
+import java.util.Arrays;
 
 public class ModuleAActivity extends AppCompatActivity {
 
@@ -34,8 +27,8 @@ public class ModuleAActivity extends AppCompatActivity {
         user.setAge(28);
         user.setMarried(true);
         user.setAvatar("http://cs.101.com/v0.1/static/sdp_nd/slp-student-android/app_ico/ico_pfs15hzc.png");
+        user.setCities(Arrays.asList("北京", "天津", "上海", "重庆"));
         binding.setUser(user);
-
         binding.setResImgId(R.drawable.btn_retry);
 
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.btn_share);
@@ -44,20 +37,8 @@ public class ModuleAActivity extends AppCompatActivity {
         UserHandler handler = new UserHandler();
         binding.setHandler(handler);
     }
-    /*@BindingAdapter("android:src")
-    public static void setSrc(ImageView view, int resId) {
-        view.setImageResource(resId);
+    public void close(View view) {
+        Toast.makeText(view.getContext(), "关闭了", Toast.LENGTH_SHORT).show();
+        finish();
     }
-    @BindingAdapter("android:src")
-    public static void setSrc(ImageView view, Bitmap bitmap) {
-        view.setImageBitmap(bitmap);
-    }
-    @BindingAdapter({"imageUrl", "placeHolder"})
-    public static void loadImage(ImageView imageView, UserVM user, Drawable holderDrawable) {
-        Glide.with(imageView.getContext())
-                .load(user.getAvatar())
-                .placeholder(holderDrawable)
-                .into(imageView);
-    }*/
-
 }

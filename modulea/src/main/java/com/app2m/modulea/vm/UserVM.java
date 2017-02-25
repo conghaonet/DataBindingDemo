@@ -3,6 +3,8 @@ package com.app2m.modulea.vm;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
+import java.util.List;
+
 /**
  * Created by CongHao on 2017/2/24.
  * E-mail: hao.cong@app2m.com
@@ -11,8 +13,9 @@ import android.databinding.Bindable;
 public class UserVM extends BaseObservable {
     private String name;
     private int age;
-    private boolean isMarried;
+    private boolean married;
     private String avatar;
+    private List<String> cities;
 
     @Bindable
     public String getName() {
@@ -34,11 +37,11 @@ public class UserVM extends BaseObservable {
 
     @Bindable
     public boolean isMarried() {
-        return isMarried;
+        return married;
     }
 
     public void setMarried(boolean married) {
-        isMarried = married;
+        this.married = married;
     }
 
     @Bindable
@@ -50,7 +53,16 @@ public class UserVM extends BaseObservable {
         this.avatar = avatar;
     }
 
-/*
+    @Bindable
+    public List<String> getCities() {
+        return cities;
+    }
+
+    public void setCities(List<String> cities) {
+        this.cities = cities;
+    }
+
+    /*
     @BindingAdapter({"bind:avatar"})
     public void loadImage(ImageView view, String avatar) {
         Toast.makeText(view.getContext(), "aaaa", Toast.LENGTH_SHORT).show();

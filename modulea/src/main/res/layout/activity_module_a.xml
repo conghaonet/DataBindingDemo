@@ -1,12 +1,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:bind="http://schemas.android.com/tools">
     <data>
+        <!--<variable name="activity"    type="com.app2m.modulea.ModuleAActivity"/>-->
         <variable name="handler"    type="com.app2m.modulea.handler.UserHandler"/>
         <variable name="user"       type="com.app2m.modulea.vm.UserVM"/>
-        <variable name="activity"   type="com.app2m.modulea.ModuleAActivity"/>
         <variable name="resImgId"   type="int"/>
         <variable name="resBitmap"  type="android.graphics.Bitmap"/>
-        <variable name="avatarUrl"     type="String"/>
     </data>
     <LinearLayout
         android:orientation="vertical"
@@ -15,9 +14,18 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="年龄+10"
+            android:text="Finish me"
+            android:textAllCaps="false"
+            android:onClick="close"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="刷新UI，年龄+10"
             android:onClick="@{(v) -> handler.addAge(v, user)}"
             />
+<!--
+-->
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:text='@{"姓名：" + user.name, default=YourName}'/>
@@ -29,10 +37,37 @@
             />
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:text='@{"年龄：" + user.age + @string/age}'/>
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text='@{user.isMarried ? "婚否：已婚" : "婚否：未婚"}'/>
+                  android:text="@{@string/age_label + user.age + @string/age_suffix, default=@string/age_label}"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text='@{user.married ? "婚否：已婚" : "婚否：未婚"}'/>
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@={user.married}"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="城市："/>
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"
+                android:entries="@{user.cities}" />
+
+        </LinearLayout>
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,13 +75,13 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@{resBitmap}" />
+            android:src="@{resBitmap}"/>
+
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:imageUrl="@{user}"
-            app:placeHolder="@{@drawable/ic_launcher}"
-            />
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            bind:imageUrl="@{user}"
+            bind:placeHolder="@{@drawable/ic_launcher}"/>
 
     </LinearLayout>
 </layout>
