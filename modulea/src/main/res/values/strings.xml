@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ModuleA</string>
     <string name="age">岁</string>
+    <string name="url">http://avatar.csdn.net/4/0/7/1_zhuhai__yizhi.jpg</string>
 </resources>

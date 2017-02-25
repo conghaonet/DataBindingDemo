@@ -1,9 +1,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <variable name="handler" type="com.app2m.modulea.handler.UserHandler"/>
-        <variable name="user"      type="com.app2m.modulea.vm.UserVM"/>
-        <variable name="activity"      type="com.app2m.modulea.ModuleAActivity"/>
+        <variable name="handler"    type="com.app2m.modulea.handler.UserHandler"/>
+        <variable name="user"       type="com.app2m.modulea.vm.UserVM"/>
+        <variable name="activity"   type="com.app2m.modulea.ModuleAActivity"/>
+        <variable name="resImgId"   type="int"/>
+        <variable name="resBitmap"  type="android.graphics.Bitmap"/>
+        <variable name="avatarUrl"     type="String"/>
     </data>
     <LinearLayout
         android:orientation="vertical"
@@ -15,22 +18,35 @@
             android:text="年龄+10"
             android:onClick="@{(v) -> handler.addAge(v, user)}"
             />
-        <!--android:onClick="@{presenter.onClickBtn}"-->
-
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:text='@{"姓名：" + user.name, default=YourName}'/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={user.name}"
+            android:hint="点击上方按钮，自动更新姓名标签"
+            />
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:text='@{"年龄：" + user.age + @string/age}'/>
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:text='@{user.isMarried ? "婚否：已婚" : "婚否：未婚"}'/>
-<!--
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:avatar = '@{user.avatar}' />
--->
+            android:src="@{resImgId}" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@{resBitmap}" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:imageUrl="@{user}"
+            app:placeHolder="@{@drawable/ic_launcher}"
+            />
+
     </LinearLayout>
 </layout>
