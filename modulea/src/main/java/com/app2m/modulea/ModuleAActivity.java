@@ -34,6 +34,8 @@ public class ModuleAActivity extends AppCompatActivity {
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.btn_share);
         binding.setResBitmap(bitmap);
 
+        binding.mySwitch.setText("mySwitch");
+
         UserHandler handler = new UserHandler();
         binding.setHandler(handler);
     }

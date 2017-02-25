@@ -24,8 +24,6 @@
             android:text="刷新UI，年龄+10"
             android:onClick="@{(v) -> handler.addAge(v, user)}"
             />
-<!--
--->
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:text='@{"姓名：" + user.name, default=YourName}'/>
@@ -67,7 +65,11 @@
                 android:entries="@{user.cities}" />
 
         </LinearLayout>
-
+        <Switch
+            android:id="@+id/mySwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
