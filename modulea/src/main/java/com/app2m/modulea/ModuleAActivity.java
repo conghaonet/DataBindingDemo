@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 import android.databinding.ViewDataBinding;
 import com.app2m.modulea.databinding.ActivityModuleABinding;
@@ -35,6 +36,12 @@ public class ModuleAActivity extends AppCompatActivity {
         binding.setResBitmap(bitmap);
 
         binding.mySwitch.setText("mySwitch");
+        binding.mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Toast.makeText(buttonView.getContext(), "mySwitch is "+ buttonView.isChecked(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         UserHandler handler = new UserHandler();
         binding.setHandler(handler);
