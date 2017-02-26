@@ -26,7 +26,6 @@ public class ModuleAActivity extends AppCompatActivity {
         UserHandler handler = new UserHandler(this, user);
         binding.setHandler(handler);
 
-//        user = new User();
         user.setAge(28);
         user.setMarried(true);
         user.setBirthday(new Date(System.currentTimeMillis()));

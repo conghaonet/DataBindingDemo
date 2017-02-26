@@ -36,9 +36,6 @@
                 android:layout_height="wrap_content"
                 app:srl_direction="both"
                 >
-<!--
-                bind:onRefresh="@{(d) -> handler.onRefresh(d)}"
--->
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/myRecyclerView"
                     android:layout_width="match_parent"
@@ -46,5 +43,11 @@
                     />
             </com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout>
         </LinearLayout>
+        <FrameLayout
+            android:id="@+id/loading_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <include layout="@layout/loading_layout"/>
+        </FrameLayout>
     </FrameLayout>
 </layout>

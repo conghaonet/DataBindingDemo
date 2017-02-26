@@ -20,10 +20,10 @@ import java.util.List;
  */
 
 public class MyItemAdapter extends RecyclerView.Adapter<MyItemAdapter.ViewHolder> {
-    private final List<MyItem> mData = new ArrayList<>();
+    private final List<MyItem> mData;
 
     public MyItemAdapter(List<MyItem> data) {
-        mData.addAll(data);
+        mData=data;
     }
 
     @Override

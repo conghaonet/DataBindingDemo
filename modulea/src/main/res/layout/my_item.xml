@@ -18,8 +18,8 @@
             android:layout_height="wrap_content"
             android:text="@{String.valueOf(item.index)}"/>
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             bind:imageUrl="@{item.imageUrl}"
             bind:placeHolder="@{@drawable/ic_launcher}"
             android:clickable="true"
