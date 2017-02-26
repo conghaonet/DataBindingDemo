@@ -1,8 +1,9 @@
-package com.app2m.modulea.vm;
+package com.app2m.modulea.binding.model;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -10,11 +11,12 @@ import java.util.List;
  * E-mail: hao.cong@app2m.com
  */
 
-public class UserVM extends BaseObservable {
+public class User extends BaseObservable {
     private String name;
     private int age;
     private boolean married;
     private String avatar;
+    private Date birthday;
     private List<String> cities;
 
     @Bindable
@@ -53,6 +55,14 @@ public class UserVM extends BaseObservable {
         this.avatar = avatar;
     }
 
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
     @Bindable
     public List<String> getCities() {
         return cities;
@@ -62,10 +72,4 @@ public class UserVM extends BaseObservable {
         this.cities = cities;
     }
 
-    /*
-    @BindingAdapter({"bind:avatar"})
-    public void loadImage(ImageView view, String avatar) {
-        Toast.makeText(view.getContext(), "aaaa", Toast.LENGTH_SHORT).show();
-    }
-*/
 }

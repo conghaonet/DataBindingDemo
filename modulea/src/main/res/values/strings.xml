@@ -1,6 +1,9 @@
 <resources>
+    <item type="id" name="tag_view_init"/>
+
     <string name="app_name">ModuleA</string>
     <string name="age_label">年龄：</string>
     <string name="age_suffix">岁</string>
+    <string name="birthday_label">生日：</string>
     <string name="url">http://avatar.csdn.net/4/0/7/1_zhuhai__yizhi.jpg</string>
 </resources>

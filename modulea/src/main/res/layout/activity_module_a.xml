@@ -1,9 +1,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:bind="http://schemas.android.com/tools">
     <data>
-        <!--<variable name="activity"    type="com.app2m.modulea.ModuleAActivity"/>-->
+        <import type="com.app2m.modulea.Utils"/>
         <variable name="handler"    type="com.app2m.modulea.handler.UserHandler"/>
-        <variable name="user"       type="com.app2m.modulea.vm.UserVM"/>
+        <variable name="user"       type="com.app2m.modulea.binding.model.User"/>
         <variable name="resImgId"   type="int"/>
         <variable name="resBitmap"  type="android.graphics.Bitmap"/>
     </data>
@@ -16,22 +16,32 @@
             android:layout_height="wrap_content"
             android:text="Finish me"
             android:textAllCaps="false"
-            android:onClick="close"
+            android:onClick="@{handler::closeSelf}"
             />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="刷新UI，年龄+10"
-            android:onClick="@{(v) -> handler.addAge(v, user)}"
+            android:onClick="@{(v) -> handler.addAge(v)}"
             />
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text='@{"姓名：" + user.name, default=YourName}'/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="姓名："/>
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="@{user.name, default=yourname}"/>
+
+        </LinearLayout>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@={user.name}"
             android:hint="点击上方按钮，自动更新姓名标签"
+            android:afterTextChanged="@{handler::userNameChanged}"
             />
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
@@ -40,13 +50,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="生日："/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{user.birthday}"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
             <TextView android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:text='@{user.married ? "婚否：已婚" : "婚否：未婚"}'/>
-            <android.support.v7.widget.AppCompatCheckBox
+            <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="@={user.married}"
+                android:onCheckedChanged="@{handler::onCheckedChanged}"
                 />
         </LinearLayout>
         <LinearLayout
@@ -63,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:spinnerMode="dropdown"
                 android:entries="@{user.cities}"
-                android:onItemSelected="@{(p,v,pos,id) -> handler.onItemSelected(p, v, pos, user)}"
+                android:onItemSelected="@{(p,v,pos,id) -> handler.onItemSelected(p, v, pos)}"
                 />
 
         </LinearLayout>
@@ -82,8 +107,9 @@
             android:src="@{resBitmap}"/>
 
         <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="centerInside"
             bind:imageUrl="@{user}"
             bind:placeHolder="@{@drawable/ic_launcher}"/>
 

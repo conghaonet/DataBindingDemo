@@ -32,7 +32,7 @@ activity_module_a.xml：
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
-        <variable name="user" type="com.app2m.modulea.bean.User"/>
+        <variable name="user" type="com.app2m.modulea.binding.model.User"/>
     </data>
     <LinearLayout
         android:orientation="vertical"
