@@ -1,6 +1,5 @@
 package com.app2m.modulea;
 
-import android.databinding.ViewDataBinding;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,7 +10,6 @@ import android.widget.Toast;
 import com.app2m.modulea.adapter.MyItemAdapter;
 import com.app2m.modulea.binding.model.MyItem;
 import com.app2m.modulea.databinding.ActivityRecyclerViewBinding;
-import com.app2m.modulea.handler.SwipyRefreshLayoutHandler;
 import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout;
 import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
 
@@ -36,7 +34,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
         binding.myRecyclerView.addItemDecoration(new DividerGridItemDecoration(this, R.drawable.divider_knowledge_grid));
         adapter = new MyItemAdapter(mData);
         binding.myRecyclerView.setAdapter(adapter);
-        binding.setHandler(new SwipyRefreshLayoutHandler(this));
+        binding.setHandler(this);
 
         binding.swipyrefreshlayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
             @Override
@@ -54,7 +52,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
 
     }
-    private void loadData(final int startPosition) {
+    public void loadData(final int startPosition) {
         if(startPosition < IMAGES.size()-1) {
             if(startPosition == 0) {
                 mData.clear();
