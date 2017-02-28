@@ -1,13 +1,14 @@
 package com.app2m.modulea;
 
-import android.databinding.ViewDataBinding;
 import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Toast;
+
+import com.app2m.modulea.binding.model.CommonTitle;
 import com.app2m.modulea.binding.model.User;
 import com.app2m.modulea.databinding.ActivityModuleABinding;
 import com.app2m.modulea.handler.UserHandler;
@@ -15,17 +16,18 @@ import com.app2m.modulea.handler.UserHandler;
 import java.util.Arrays;
 import java.util.Date;
 
-public class ModuleAActivity extends AppCompatActivity {
+public class ModuleAActivity extends BaseBindingActivity {
 
     private final User user = new User();
-
+    private ActivityModuleABinding binding;
+    private CommonTitle commonTitle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityModuleABinding binding = DataBindingUtil.setContentView(this, R.layout.activity_module_a);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_module_a);
         UserHandler handler = new UserHandler(this, user);
         binding.setHandler(handler);
-
+        binding.setActivity(this);
         user.setAge(28);
         user.setMarried(true);
         user.setBirthday(new Date(System.currentTimeMillis()));
@@ -46,6 +48,18 @@ public class ModuleAActivity extends AppCompatActivity {
             }
         });
 
-
+//        setCommonTitleView(binding.myViewStub, "ModuleAActivity");
+        commonTitle = new CommonTitle(getResources(), "CommonTitle");
+        commonTitle.setLeftImageId(getResources(), R.drawable.btn_retry);
+        commonTitle.setRightTextId(getResources(), R.string.age_label);
+        setCommonTitleView(binding.myViewStub, commonTitle);
     }
+
+    @Override
+    public void onClickTitleBack(View view) {
+        commonTitle.setTitleStr("title changed!!");
+        commonTitle.notifyChange();
+        Toast.makeText(this, "Clicked back", Toast.LENGTH_SHORT).show();
+    }
+
 }

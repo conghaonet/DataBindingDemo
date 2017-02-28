@@ -1,7 +1,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:bind="http://schemas.android.com/tools">
+        xmlns:bind="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <import type="com.app2m.modulea.Utils"/>
+        <variable name="activity"    type="com.app2m.modulea.ModuleAActivity"/>
         <variable name="handler"    type="com.app2m.modulea.handler.UserHandler"/>
         <variable name="user"       type="com.app2m.modulea.binding.model.User"/>
         <variable name="resImgId"   type="int"/>
@@ -11,6 +13,12 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <ViewStub
+            android:id="@+id/my_view_stub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout="@layout/common_title_bar"
+            android:inflatedId="@+id/panel_import"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -1,5 +1,5 @@
 <resources>
-    <item type="id" name="tag_view_init"/>
+    <item name="tag_view_init" type="id"/>
 
     <string name="app_name">ModuleA</string>
     <string name="age_label">年龄：</string>
