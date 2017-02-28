@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="commonTitle"
+            type="com.app2m.modulea.binding.model.CommonTitle"/>
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:background="#00ff00">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{commonTitle.title, default=Title}"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"
+            />
+    </LinearLayout>
+</layout>
