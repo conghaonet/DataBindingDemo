@@ -86,10 +86,10 @@ public class CommonTitle extends BaseObservable {
         return titleId;
     }
 
-    public void setTitleId(int titleId) {
+    public void setTitleId(Resources res, @StringRes int titleId) {
         this.titleId = titleId;
         try {
-            this.titleStr = Resources.getSystem().getString(this.titleId);
+            this.titleStr = res.getString(this.titleId);
         } catch (Resources.NotFoundException e) {
             Logger.getAnonymousLogger().info(e.getMessage());
         }
