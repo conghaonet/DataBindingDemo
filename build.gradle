@@ -1,4 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+def myBuildRootDir = properties.getProperty('myBuildRootDir')
 
 buildscript {
     repositories {
@@ -16,8 +19,18 @@ allprojects {
     repositories {
         jcenter()
     }
+    if (myBuildRootDir != null && !myBuildRootDir.trim().equalsIgnoreCase("")) {
+        println("===============${myBuildRootDir}")
+        if(rootProject.name == project.name) {
+            buildDir = "${myBuildRootDir}/${rootProject.name}/build"
+        } else {
+            buildDir = "${myBuildRootDir}/${rootProject.name}/${project.name}"
+        }
+    }
 }
 
+/*
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+*/
